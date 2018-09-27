@@ -1,8 +1,11 @@
-from django.urls import path, re_path
-from . import views
+from django.urls import path, register_converter
+from . import views, converters
+
+register_converter(converters.FENStringConverter, 'fen')
+register_converter(converters.FileExtensionConverter, 'fext')
+
 
 urlpatterns = [
-  re_path(
-      r'^fen/(?P<fen_url_string>[^\.]{8,100})\.(?P<file_extension>[svjpng]{3})$',
-      views.hello, name='fen_url'),
+    path('fen/<fen:fen_url_string>.<fext:file_extension>',
+         views.hello, name='fen_url'),
 ]
