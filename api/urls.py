@@ -7,5 +7,5 @@ register_converter(converters.FileExtensionConverter, 'fext')
 
 urlpatterns = [
     path('fen/<fen:fen_url_string>.<fext:file_extension>',
-         views.hello, name='fen_url'),
+         views.image_from_fen, name='fen_url'),
 ]
