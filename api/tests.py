@@ -1,6 +1,8 @@
 from django.test import TestCase, Client
 from urllib.parse import quote
 from django.urls import reverse
+import chess
+from . import utils
 
 
 class TestFENUrl(TestCase):
@@ -56,3 +58,21 @@ class TestFENUrl(TestCase):
       res_invalid_list.append(
           c.get(self.uri_template.format(self.fen1, ext)).status_code)
     self.assertEqual(res_invalid_list, [404, 404, 404])
+
+
+class TestImageFromBoard(TestCase):
+  def setUp(self):
+    self.board = chess.Board()
+
+  def test_invalid_extension(self):
+    ext = 'asd'
+    self.assertRaises(ValueError, utils.image_from_board, 
+                      board=self.board, ext=ext)
+
+  def test_svg(self):
+      svg_image = utils.image_from_board(self.board, 'svg')
+      self.assertEqual(type(svg_image), str)
+
+  def test_png(self):
+      png_image = utils.image_from_board(self.board, 'png')
+      self.assertEqual(type(png_image), bytes)
