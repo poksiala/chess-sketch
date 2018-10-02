@@ -76,3 +76,7 @@ class TestImageFromBoard(TestCase):
   def test_png(self):
       png_image = utils.image_from_board(self.board, 'png')
       self.assertEqual(type(png_image), bytes)
+
+  def test_jpg(self):
+      jpg_image = utils.image_from_board(self.board, 'jpg')
+      self.assertEqual(type(jpg_image), bytes)
