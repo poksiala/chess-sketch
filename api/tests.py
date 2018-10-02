@@ -12,7 +12,7 @@ class TestFENUrl(TestCase):
     self.fen2 = \
         'rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2'
     self.fen3 = '8/8/8/8/5R2/2pk4/5K2/8 b - - 0 1'
-    self.fen_invalid = '7/8/8/8/8/rR6/8'
+    self.fen_invalid = '8/7/8/8/8/rR6/8/8 w - - 0 1'
     self.fen1_encoded = quote(self.fen1)
     self.fen2_encoded = quote(self.fen2)
     self.fen3_encoded = quote(self.fen3)
@@ -66,7 +66,7 @@ class TestImageFromBoard(TestCase):
 
   def test_invalid_extension(self):
     ext = 'asd'
-    self.assertRaises(ValueError, utils.image_from_board, 
+    self.assertRaises(ValueError, utils.image_from_board,
                       board=self.board, ext=ext)
 
   def test_svg(self):
