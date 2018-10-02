@@ -17,7 +17,8 @@ def png_from_board(board: chess.Board, **board_options):
 def jpg_from_board(board: chess.Board, **board_options):
   png_data = png_from_board(board, **board_options)
   image = Image.open(io.BytesIO(png_data))
-  rbg_image = image.convert('RGB')
+  white_bg = Image.new('RGBA', image.size, (255, 255, 255))
+  rbg_image = Image.alpha_composite(white_bg, image).convert('RGB')
   bytes_buffer = io.BytesIO()
   rbg_image.save(bytes_buffer, format='JPEG', quality=80)
   return bytes_buffer.getvalue()
