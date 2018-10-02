@@ -26,7 +26,7 @@ def jpg_from_board(board: chess.Board, **board_options):
 
 def image_from_board(board: chess.Board, ext: str, **board_options):
   if ext == 'svg':
-    return svg_from_board(board, **board_options) 
+    return svg_from_board(board, **board_options)
   elif ext == 'jpg':
     return jpg_from_board(board, **board_options)
   elif ext == 'png':
@@ -44,4 +44,3 @@ def content_type_from_extension(ext: str) -> str:
     return 'image/png'
   else:
     raise ValueError('Unsupported file extension `{}`'.format(ext))
-    
