@@ -1,0 +1,45 @@
+<html>
+<head>
+  <title>ChessSketch</title>
+  <style>
+  body {
+    background-color: #D5D5D5;
+    font-family: monospace;
+  }
+  .content {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  h1 {
+    font-size: 23px;
+    font-weight: bold;
+  }
+  h2 {
+    font-size: 18px;
+    font-weight: 300;
+  }
+  a:link, a:visited {
+    color: #6d7993;
+  }
+  a:hover, a:active {
+    color: #96858F;
+  }
+  </style>
+</head>
+<body>
+  <div class="content">
+  <h1>ChessSketch</h1>
+  <p>ChessSketch is a simple service that generates images from
+    <a href="https://en.wikipedia.org/wiki/Forsyth%E2%80%93Edwards_Notation">FEN strings</a>.</p>
+  <h2>Usage</h2>
+  <p>Generate url in a form of
+    <em>https://{{request.get_host}}/v1/fen/FENSTRING.EXTENSION</em>.
+    Supported file extensions are svg, png and jpg. </p>
+  <p>Example: <a href="https://{{request.get_host}}/v1/fen/rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2.png">
+    https://{{request.get_host}}/v1/fen/rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq - 1 2.png</a></p>
+  <h2>Development</h2>
+  <p>Feel free to submit issues or fork me on <a href="https://github.com/poksiala/chess-sketch">Github</a>.</p>
+</div>
+</body>
+</html>
