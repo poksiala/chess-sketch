@@ -18,7 +18,7 @@ class TestFENUrl(TestCase):
     self.fen3_encoded = quote(self.fen3)
     self.fen_invalid_encoded = quote(self.fen_invalid)
 
-    self.uri_begin = '/api'
+    self.uri_begin = '/v1'
     self.uri_template = '{}/fen/{{}}.{{}}'.format(self.uri_begin)
 
   def test_fen_url_reverse(self):
