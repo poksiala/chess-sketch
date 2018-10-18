@@ -1,5 +1,4 @@
 import chess
-from django.shortcuts import render
 from django.http import HttpResponse
 from .utils import image_from_board, content_type_from_extension
 
